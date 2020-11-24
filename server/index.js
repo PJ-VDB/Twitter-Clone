@@ -13,7 +13,7 @@ const limiter = rateLimit({
 
 const app = express();
 
-const db = monk('localhost/meower'); //db will be automatically created if it doesn't exist
+const db = monk(process.env.MONGO_URI || 'localhost/meower'); //db will be automatically created if it doesn't exist
 const mews = db.get('mews'); //collection will be automatically created if it doesn't exist
 
 app.use(cors());
